@@ -25,5 +25,65 @@
   "author": {
     "name": "Bas van Etten",
     "email": "bas.v.etten@gmail.com"
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "SlimmeLezer+"
+      },
+      "class": "other",
+      "capabilities": [
+        "meter_power",
+        "meter_gas",
+        "measure_power"
+      ],
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "lan"
+      ],
+      "images": {
+        "small": "/drivers/slimmelezer/assets/images/small.png",
+        "large": "/drivers/slimmelezer/assets/images/large.png",
+        "xlarge": "/drivers/slimmelezer/assets/images/xlarge.png"
+      },
+      "discovery": "slimmelezer_discovery",
+      "pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "slimmelezer"
+    }
+  ],
+  "discovery": {
+    "slimmelezer_discovery": {
+      "type": "mdns-sd",
+      "mdns-sd": {
+        "name": "http",
+        "protocol": "tcp"
+      },
+      "id": "{{txt.id}}",
+      "conditions": [
+        [
+          {
+            "field": "name",
+            "match": {
+              "type": "string",
+              "value": "slimmelezer"
+            }
+          }
+        ]
+      ]
+    }
   }
 }
