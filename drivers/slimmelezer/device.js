@@ -9,6 +9,11 @@ class SlimmeLezerDevice extends Device {
    */
   async onInit() {
     this.log('SlimmeLezer device has been initialized');
+    var EventSource = require('eventsource')
+    var es = new EventSource('http://192.168.2.25/events')
+    es.addEventListener('data', function (e) {
+      console.log(e.data)
+    })
   }
 
   /**
