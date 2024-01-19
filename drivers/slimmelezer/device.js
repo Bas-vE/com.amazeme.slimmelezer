@@ -11,14 +11,33 @@ class SlimmeLezerDevice extends Device
   async onInit() 
   {
     var address = this.getData().address;
+    var self = this;
     //this.log('SlimmeLezer on address: '+ address + ' has been initialized');
+
+    //setting all capabilities to 0
+    this.setCapabilityValue('meter_power',0);
+    this.setCapabilityValue('meter_gas',0);
+    this.setCapabilityValue('measure_power',0);
 
     //create an eventsource that listens to the slimmemeter events
     var EventSource = require('eventsource')
     var es = new EventSource('http://' + address + '/events')
-    es.addEventListener('state', function (e) {
+    es.addEventListener('state', function (e) 
+    {
       //parse the json data and only get the parts we need to use
-      //console.log(e.data)
+      var obj = JSON.parse(e.data);
+      switch(obj.id)
+      {
+        case 'sensor-power_consumed':
+          self.setCapabilityValue('measure_power.consumed',obj.value*1000);
+          self.setCapabilityValue('measure_power',obj.value*1000);
+          break;
+        case 'sensor-power_produced':
+          self.setCapabilityValue('measure_power.produced',obj.value*1000);
+          break;
+      }
+
+
     })
   }
  

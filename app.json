@@ -35,9 +35,26 @@
       "class": "sensor",
       "capabilities": [
         "meter_power",
+        "meter_power.T1",
+        "meter_power.T2",
         "meter_gas",
-        "measure_power"
+        "measure_power.consumed",
+        "measure_power.produced"
       ],
+      "capabilitiesOptions": {
+        "measure_power.consumed": {
+          "title": {
+            "en": "Electricity consumed",
+            "nl": "Elektriciteit verbruik"
+          }
+        },
+        "measure_power.produced": {
+          "title": {
+            "en": "Electricity produced",
+            "nl": "Elektriciteit gegenereerd"
+          }
+        }
+      },
       "energy": {
         "cumulative": true
       },

@@ -25,6 +25,7 @@ class SlimmeLezerDriver extends Driver {
       return {
         name: discoveryResult.name,
         data: {
+          id: discoveryResult.id,
           address: discoveryResult.address
         },
       };
