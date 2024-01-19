@@ -12,12 +12,10 @@ class SlimmeLezerDevice extends Device
   {
     var address = this.getData().address;
     var self = this;
-    //this.log('SlimmeLezer on address: '+ address + ' has been initialized');
 
-    //setting all capabilities to 0
-    this.setCapabilityValue('meter_power',0);
-    this.setCapabilityValue('meter_gas',0);
-    this.setCapabilityValue('measure_power',0);
+    var produced = 0;
+    var consumed = 0;
+
 
     //create an eventsource that listens to the slimmemeter events
     var EventSource = require('eventsource')
@@ -29,14 +27,25 @@ class SlimmeLezerDevice extends Device
       switch(obj.id)
       {
         case 'sensor-power_consumed':
-          self.setCapabilityValue('measure_power.consumed',obj.value*1000);
-          self.setCapabilityValue('measure_power',obj.value*1000);
+          consumed = obj.value*1000
+          self.setCapabilityValue('measure_power.consumed',consumed);
+          self.setCapabilityValue('measure_power', consumed - produced);
           break;
         case 'sensor-power_produced':
-          self.setCapabilityValue('measure_power.produced',obj.value*1000);
+          produced = obj.value*1000;
+          self.setCapabilityValue('measure_power.produced',produced);
+          self.setCapabilityValue('measure_power', consumed - produced);
+          break;
+        case 'sensor-energy_consumed_tariff_1':
+          self.setCapabilityValue('meter_power.T1',obj.value);
+          break;
+        case 'sensor-energy_consumed_tariff_2':
+          self.setCapabilityValue('meter_power.T2',obj.value);
+          break;
+        case 'sensor-gas_consumed':
+          self.setCapabilityValue('meter_gas',obj.value);
           break;
       }
-
 
     })
   }

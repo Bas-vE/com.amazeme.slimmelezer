@@ -34,14 +34,21 @@
       },
       "class": "sensor",
       "capabilities": [
-        "meter_power",
+        "measure_power",
+        "measure_power.consumed",
+        "measure_power.produced",
         "meter_power.T1",
         "meter_power.T2",
-        "meter_gas",
-        "measure_power.consumed",
-        "measure_power.produced"
+        "meter_gas"
       ],
       "capabilitiesOptions": {
+        "measure_power": {
+          "title": {
+            "en": "Electricity total",
+            "nl": "Elektriciteit totaal"
+          },
+          "uiComponent": null
+        },
         "measure_power.consumed": {
           "title": {
             "en": "Electricity consumed",
@@ -52,6 +59,24 @@
           "title": {
             "en": "Electricity produced",
             "nl": "Elektriciteit gegenereerd"
+          }
+        },
+        "meter_power.T1": {
+          "title": {
+            "en": "Power total T1",
+            "nl": "Vermogen totaal T1"
+          }
+        },
+        "meter_power.T2": {
+          "title": {
+            "en": "Power total T2",
+            "nl": "Vermogen totaal T2"
+          }
+        },
+        "meter_gas": {
+          "title": {
+            "en": "Gas total",
+            "nl": "Gas totaal"
           }
         }
       },
