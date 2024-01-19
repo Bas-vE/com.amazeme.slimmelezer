@@ -8,7 +8,7 @@ class SlimmeLezerDriver extends Driver {
    * onInit is called when the driver is initialized.
    */
   async onInit() {
-    this.log('SlimmeLezer driver has been initialized');
+    //this.log('SlimmeLezer driver has been initialized');
   }
 
   /**
@@ -23,13 +23,12 @@ class SlimmeLezerDriver extends Driver {
 
     const devices = Object.values(discoveryResults).map(discoveryResult => {
       return {
-        name: discoveryResult.txt.name,
+        name: discoveryResult.name,
         data: {
-          id: discoveryResult.id,
+          address: discoveryResult.address
         },
       };
     });
-
     return devices;
   }
 

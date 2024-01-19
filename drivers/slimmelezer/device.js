@@ -2,24 +2,31 @@
 
 const { Device } = require('homey');
 
-class SlimmeLezerDevice extends Device {
+class SlimmeLezerDevice extends Device 
+{
 
   /**
    * onInit is called when the device is initialized.
    */
-  async onInit() {
-    this.log('SlimmeLezer device has been initialized');
+  async onInit() 
+  {
+    var address = this.getData().address;
+    //this.log('SlimmeLezer on address: '+ address + ' has been initialized');
+
+    //create an eventsource that listens to the slimmemeter events
     var EventSource = require('eventsource')
-    var es = new EventSource('http://192.168.2.25/events')
-    es.addEventListener('data', function (e) {
-      console.log(e.data)
+    var es = new EventSource('http://' + address + '/events')
+    es.addEventListener('state', function (e) {
+      //parse the json data and only get the parts we need to use
+      //console.log(e.data)
     })
   }
-
+ 
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
-  async onAdded() {
+  async onAdded() 
+  {
     this.log('SlimmeLezer device has been added');
   }
 
@@ -31,7 +38,8 @@ class SlimmeLezerDevice extends Device {
    * @param {string[]} event.changedKeys An array of keys changed since the previous version
    * @returns {Promise<string|void>} return a custom message that will be displayed
    */
-  async onSettings({ oldSettings, newSettings, changedKeys }) {
+  async onSettings({ oldSettings, newSettings, changedKeys }) 
+  {
     this.log('SlimmeLezer device settings where changed');
   }
 
@@ -40,16 +48,19 @@ class SlimmeLezerDevice extends Device {
    * This method can be used this to synchronise the name to the device.
    * @param {string} name The new name
    */
-  async onRenamed(name) {
+  async onRenamed(name) 
+  {
     this.log('SlimmeLezer device was renamed');
   }
 
   /**
    * onDeleted is called when the user deleted the device.
    */
-  async onDeleted() {
+  async onDeleted() 
+  {
     this.log('SlimmeLezer device has been deleted');
   }
+  
 
 }
 
