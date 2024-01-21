@@ -1,13 +1,15 @@
 'use strict';
 
 const { Device } = require('homey');
+const EventSource = require('eventsource');
+const { timeEnd } = require('console');
 
 class SlimmeLezerDevice extends Device 
 {
-
-  /**
-   * onInit is called when the device is initialized.
-   */
+  // Define class fields
+  eventsource;
+  
+  // onInit is called when the device is initialized.
   async onInit() 
   {
     var address = this.getData().address;
@@ -16,11 +18,22 @@ class SlimmeLezerDevice extends Device
     var produced = 0;
     var consumed = 0;
 
+    this.log('SlimmeLezer on address: ' + address + ' has been initialized');
+
+    this.connect(address);
+  }
+ 
+  // connect is called to start the listener for data from the device
+  connect(address)
+  {
+    var self = this;
+
+    var produced = 0;
+    var consumed = 0;
 
     //create an eventsource that listens to the slimmemeter events
-    var EventSource = require('eventsource')
-    var es = new EventSource('http://' + address + '/events')
-    es.addEventListener('state', function (e) 
+    this.eventsource = new EventSource('http://' + address + '/events');
+    this.eventsource.addEventListener('state', function (e) 
     {
       //parse the json data and only get the parts we need to use
       var obj = JSON.parse(e.data);
@@ -46,10 +59,9 @@ class SlimmeLezerDevice extends Device
           self.setCapabilityValue('meter_gas',obj.value);
           break;
       }
-
-    })
+    })    
   }
- 
+
   /**
    * onAdded is called when the user adds the device, called just after pairing.
    */
