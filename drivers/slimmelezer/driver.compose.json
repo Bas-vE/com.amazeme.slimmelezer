@@ -17,8 +17,7 @@
       "title": {
         "en": "Electricity total",
         "nl": "Elektriciteit totaal"
-      },
-      "uiComponent": null
+      }
     },
     "measure_power.consumed": {
       "title": {
