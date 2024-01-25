@@ -7,8 +7,12 @@
     "measure_power",
     "measure_power.consumed",
     "measure_power.produced",
-    "meter_power.T1",
-    "meter_power.T2",
+    "meter_power.consumed.T1",
+    "meter_power.consumed.T2",
+    "meter_power.consumed.total",
+    "meter_power.produced.T1",
+    "meter_power.produced.T2",
+    "meter_power.produced.total",
     "meter_gas"
 
   ],
@@ -31,16 +35,40 @@
         "nl": "Elektriciteit gegenereerd"
       }
     },
-    "meter_power.T1": {
+    "meter_power.consumed.T1": {
       "title": {
-        "en": "Power total T1",
-        "nl": "Vermogen totaal T1"
+        "en": "Power consumed T1",
+        "nl": "Vermogen verbruik T1"
       }
     },
-    "meter_power.T2": {
+    "meter_power.consumed.T2": {
       "title": {
-        "en": "Power total T2",
-        "nl": "Vermogen totaal T2"
+        "en": "Power consumed T2",
+        "nl": "Vermogen verbruik T2"
+      }
+    },
+    "meter_power.consumed.total": {
+      "title": {
+        "en": "Power consumed total",
+        "nl": "Vermogen verbruik totaal"
+      }
+    },
+    "meter_power.produced.T1": {
+      "title": {
+        "en": "Power produced T1",
+        "nl": "Vermogen gegenereerd T1"
+      }
+    },
+    "meter_power.produced.T2": {
+      "title": {
+        "en": "Power produced T2",
+        "nl": "Vermogen gegenereerd T2"
+      }
+    },
+    "meter_power.produced.total": {
+      "title": {
+        "en": "Power produced total",
+        "nl": "Vermogen gegenereerd totaal"
       }
     },
     "meter_gas": {
