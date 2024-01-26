@@ -11,13 +11,13 @@
     "en": "SlimmeLezer"
   },
   "description": {
-    "en": "Adds support for the SlimmeLezer+ P1 reader made by Marcel Zuidwijk."
+    "en": "Keep control over your home energy usage"
   },
   "category": [
     "energy"
   ],
   "permissions": [],
-  "brandColor": "#24B0FF",
+  "brandColor": "#075D8E",
   "images": {
     "small": "/assets/images/zuidwijksmall.png",
     "large": "/assets/images/zuidwijklarge.png",

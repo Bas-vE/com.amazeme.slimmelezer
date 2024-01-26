@@ -6,7 +6,6 @@ const { timeEnd } = require('console');
 class SlimmeLezerDevice extends Device 
 {
   // Define class fields
-  eventsource;
   timer;
   meterData = 
   {
@@ -90,6 +89,7 @@ class SlimmeLezerDevice extends Device
 
   }
 
+  // Updates the available capabilities with the new values
   UpdateCapabilites()
   {
     var data = this.meterData;
