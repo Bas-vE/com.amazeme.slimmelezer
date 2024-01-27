@@ -128,6 +128,7 @@ class SlimmeLezerDevice extends Device
     catch (err) 
     {
       console.log(err.message); //can be console.error
+      return 0;
     }
   }
 
