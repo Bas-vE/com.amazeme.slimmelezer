@@ -1,6 +1,6 @@
 {
   "id": "nl.amazeme.slimmelezer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -26,8 +26,16 @@
     "name": "Bas van Etten",
     "email": "bas.v.etten@gmail.com"
   },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "@basseytje"
+      }
+    }
+  },
   "source": "https://github.com/Bas-vE/nl.amazeme.slimmelezer",
   "bugs": {
     "url": "https://github.com/Bas-vE/nl.amazeme.slimmelezer/issues"
-  }
+  },
+  "homeyCommunityTopicId": 102623
 }
