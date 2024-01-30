@@ -2,12 +2,14 @@
 
 const { Driver } = require('homey');
 
-class SlimmeLezerDriver extends Driver {
+class SlimmeLezerDriver extends Driver 
+{
 
   /**
    * onInit is called when the driver is initialized.
    */
-  async onInit() {
+  async onInit() 
+  {
     //this.log('SlimmeLezer driver has been initialized');
   }
 

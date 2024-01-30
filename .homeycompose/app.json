@@ -1,6 +1,6 @@
 {
   "id": "nl.amazeme.slimmelezer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "compatibility": ">=5.0.0",
   "sdk": 3,
   "platforms": [
@@ -29,7 +29,7 @@
   "contributing": {
     "donate": {
       "paypal": {
-        "username": "@basseytje"
+        "username": "basseytje"
       }
     }
   },
