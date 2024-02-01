@@ -40,6 +40,11 @@ class SlimmeLezerDevice extends Device
     var address = this.getData().address;
     var apiAddress = 'http://'+ address + '/sensor/';
 
+    await this.setSettings({
+      // Set the IP Address in the settings
+      ipaddress: address,
+    });
+
     this.log('SlimmeLezer on address: ' + address + ' has been initialized');
 
     // Create a timer to get the data every 5000ms
@@ -127,7 +132,7 @@ class SlimmeLezerDevice extends Device
     } 
     catch (err) 
     {
-      console.log(err.message); //can be console.error
+      console.log(err.message + " on " + this.getData().address); //can be console.error
       return 0;
     }
   }

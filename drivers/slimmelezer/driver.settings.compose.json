@@ -1,0 +1,9 @@
+[
+    {
+      "id": "ipaddress",
+      "type": "label",
+      "label": { "en": "IP address" },
+      "value": "192.168.0.1",
+      "hint": { "en": "The IP address of the device." }
+    }
+  ]
