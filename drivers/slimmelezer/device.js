@@ -2,6 +2,7 @@
 
 const { Device } = require('homey');
 const { timeEnd } = require('console');
+const fetch = require('node-fetch');
 
 class SlimmeLezerDevice extends Device 
 {
@@ -58,26 +59,31 @@ class SlimmeLezerDevice extends Device
       // self.meterData.PowerConsumedPhase1 = await this.GetData(apiAddress + 'power_consumed_phase_1');
       // self.meterData.PowerConsumedPhase2 = await this.GetData(apiAddress + 'power_consumed_phase_2');
       // self.meterData.PowerConsumedPhase3 = await this.GetData(apiAddress + 'power_consumed_phase_3');
-
+      await self.Delay(100);
+      
       // get the power produced
       self.meterData.PowerProduced = await this.GetData(apiAddress + 'power_produced');
       // self.meterData.PowerProducedPhase1 = await this.GetData(apiAddress + 'power_produced_phase_1');
       // self.meterData.PowerProducedPhase2 = await this.GetData(apiAddress + 'power_produced_phase_2');
       // self.meterData.PowerProducedPhase3 = await this.GetData(apiAddress + 'power_produced_phase_3');
+      await self.Delay(100);
 
       // get the gas meter
       self.meterData.GasConsumed = await this.GetData(apiAddress + 'gas_consumed');
       self.meterData.GasConsumedBe = await this.GetData(apiAddress + 'gas_consumed_belgium');
+      await self.Delay(100);
 
       // Get the total energy consumed
       self.meterData.EnergyConsumedL = await this.GetData(apiAddress + 'energy_consumed_luxembourg');
       self.meterData.EnergyConsumedT1 = await this.GetData(apiAddress + 'energy_consumed_tariff_1');
       self.meterData.EnergyConsumedT2 = await this.GetData(apiAddress + 'energy_consumed_tariff_2');
+      await self.Delay(100);
 
       // Get the total energy produced
       self.meterData.EnergyProducedL = await this.GetData(apiAddress + 'energy_produced_luxembourg');
       self.meterData.EnergyProducedT1 = await this.GetData(apiAddress + 'energy_produced_tariff_1');
       self.meterData.EnergyProducedT2 = await this.GetData(apiAddress + 'energy_produced_tariff_2');
+      await self.Delay(100);
 
       // Get the total voltage
       //self.meterData.VoltagePhase1 = await this.GetData(apiAddress + 'voltage_phase_1');
@@ -93,6 +99,10 @@ class SlimmeLezerDevice extends Device
     }, 5000);
 
   }
+
+  Delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+  } 
 
   // Updates the available capabilities with the new values
   UpdateCapabilites()

@@ -13,5 +13,11 @@
   },
   "1.0.4": {
     "en": "Changed minimal Homey version and added IPAddress readout in the settings"
+  },
+  "1.0.5": {
+    "en": "Add backwards compatibilty for older Homey version"
+  },
+  "1.0.6": {
+    "en": "Added delay between api calls"
   }
 }
